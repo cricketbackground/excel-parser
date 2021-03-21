@@ -1,4 +1,4 @@
-FROM openjdk:17-ea-14-jdk AS TEMP_BUILD_IMAGE
+FROM openjdk:14 AS TEMP_BUILD_IMAGE
 
 ENV APP_HOME=/usr/app/
 
@@ -14,7 +14,7 @@ COPY . .
 
 RUN ./gradlew build
 
-FROM openjdk:17-ea-14-jdk
+FROM openjdk:14
 
 ENV ARTIFACT_NAME=excel-parser.jar
 
