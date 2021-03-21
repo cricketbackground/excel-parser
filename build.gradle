@@ -31,3 +31,11 @@ tasks.withType( JavaCompile ).configureEach {
 test {
 	useJUnitPlatform()
 }
+
+bootJar {
+    enabled = false
+}
+
+jar {
+    enabled = true
+}
