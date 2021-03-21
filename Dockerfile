@@ -16,14 +16,12 @@ RUN ./gradlew build
 
 FROM openjdk:14
 
-ENV ARTIFACT_NAME=excel-parser.jar
-
-ENV APP_HOME=/usr/app/
+ENV APP_HOME=/usr/app
 
 WORKDIR $APP_HOME
 
-COPY --from=TEMP_BUILD_IMAGE $APP_HOME/build/libs/$ARTIFACT_NAME .
+COPY --from=TEMP_BUILD_IMAGE $APP_HOME/build/libs/excel-parser.jar .
 
 EXPOSE 8080
 
-CMD ["java", "-jar", $ARTIFACT_NAME]
+CMD ["java", "-jar", "excel-parser.jar"]
